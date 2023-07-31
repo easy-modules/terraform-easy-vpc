@@ -110,7 +110,7 @@ output "private_subnets" {
 }
 
 output "private_subnet_arns" {
-  description = "List of ARNs of private subnets"
+  description = "List of  ARNs of the private subnets"
   value       = aws_subnet.private[*].arn
 }
 
