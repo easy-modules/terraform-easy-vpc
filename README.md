@@ -19,6 +19,7 @@ module "vpc" {
   }
 }
 ```
+
 ## NAT Gateway Scenarios
 
 This module supports three scenarios for creating NAT gateways. Each will be explained in further detail in the corresponding sections.
