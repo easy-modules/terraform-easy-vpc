@@ -99,11 +99,9 @@ resource "aws_route" "private_nat_gateway" {
 # INTERNET GATEWAY
 #===============================================================================
 resource "aws_internet_gateway" "this" {
-  count = local.create_public_subnets && var.create_igw ? 1 : 0
-
+  count  = local.create_public_subnets && var.create_igw ? 1 : 0
   vpc_id = local.vpc_id
-
-  tags = merge({ Name = var.name }, var.tags, var.igw_tags)
+  tags   = merge({ Name = var.name }, var.tags, var.igw_tags)
 }
 #===============================================================================
 # PUBLIC SUBNETS
@@ -123,7 +121,10 @@ resource "aws_subnet" "public" {
 
   tags = merge(
     {
-      Name = try(var.public_subnet_names[count.index], format("%s-public-%d", var.azs, count.index))
+      Name = try(
+        var.public_subnet_names[count.index],
+        format("${var.name}-${var.public_subnet_suffix}-%s", element(var.azs, count.index))
+      )
     }, local.default_tags,
     var.public_subnet_tags,
   lookup(var.public_subnet_tags_per_az, element(var.azs, count.index), {}))
