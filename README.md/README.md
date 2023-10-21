@@ -1,9 +1,3 @@
----
-layout: editorial
----
-
-# README
-
 ```hcl
 module "vpc" {
   source = "easy-modules/vpc/easy"
