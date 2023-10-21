@@ -1,8 +1,10 @@
 # Table of contents
 
-* [README](README.md)
-
 ## Docs
 
-* [subnets](docs/subnets.md)
+* [subnets](README.md)
 * [vpc](docs/vpc.md)
+
+***
+
+* [README](<README (1).md>)
